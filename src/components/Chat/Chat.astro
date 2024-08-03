@@ -1,0 +1,32 @@
+---
+import PlantyChatItem from "../Chat/PlantyChatItem.astro";
+import UserChatItem from "../Chat/UserChatItem.astro";
+
+import { type ChatItem } from "../Chat/types";
+const defaultMessage: ChatItem = {
+  type: "planty",
+  message:
+    "Hola soy Planty, hazme una foto para ayudarte a encontrar problemas en tus plantas.",
+};
+const messages: ChatItem[] = [defaultMessage, defaultMessage];
+---
+
+<article id="chat">
+  {
+    messages.map((x) => {
+      if (x.type === "planty") {
+        return <PlantyChatItem>{x.message}</PlantyChatItem>;
+      } else {
+        return <UserChatItem>{x.message}</UserChatItem>;
+      }
+    })
+  }
+</article>
+
+<style>
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+</style>
