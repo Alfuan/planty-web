@@ -1,5 +1,5 @@
 ---
-import Chat from "../components/Chat/Chat.astro";
+import Chat from "../components/Chat/Chat.tsx";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -7,7 +7,7 @@ import Layout from "../layouts/Layout.astro";
   <main>
     <h1>Hola!</h1>
     <h2>¿Ves algo raro en tu planta?</h2>
-    <Chat />
+    <Chat client:load />
   </main>
 </Layout>
 
@@ -15,7 +15,7 @@ import Layout from "../layouts/Layout.astro";
   main {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 24px;
 
     max-width: 100%;
   }
